@@ -269,7 +269,7 @@ def render_creative_studio(source_display: np.ndarray, isp_output: np.ndarray,
         for column, name in zip(cols, names[start:start + 4]):
             cfg = presets[name]
             with column:
-                thumb = apply_look(mini_float, cfg, intensity)
+                thumb = apply_look(thumb_float, cfg, intensity)
                 st.image(np.uint8(thumb * 255 + .5), use_container_width=True)
                 st.markdown(f"**{name}**" + (" · active" if selected_name == name else ""))
                 st.caption(cfg["description"])
