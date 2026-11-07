@@ -1,0 +1,10 @@
+.git
+.venv
+__pycache__
+*.py[cod]
+tests
+work
+outputs
+data/incoming_archive6
+data/**/*.zip
+data/**/*.csv

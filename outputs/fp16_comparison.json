@@ -1,0 +1,77 @@
+{
+  "data_root": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\data\\synthetic_pairs\\test",
+  "synthetic_dataset": true,
+  "device": "cpu",
+  "runs_per_scene": 1,
+  "note": "One inference per scene; synthetic validation is not camera-quality evidence.",
+  "variants": [
+    {
+      "checkpoint": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\models\\isp_tiny.pt",
+      "precision": "fp32",
+      "checkpoint_size_bytes": 3704373,
+      "checkpoint_size_mb": 3.5327653884887695,
+      "parameters": 921003,
+      "scenes": 3,
+      "mean_metrics": {
+        "psnr_db": 15.325253739135634,
+        "ssim": 0.7196904619534811,
+        "delta_e76": 26.733466972953114
+      },
+      "median_latency_ms_per_scene": 79.23669996671379,
+      "per_image": [
+        {
+          "image": "scene_0027.npy",
+          "psnr_db": 15.943816950037291,
+          "ssim": 0.7059139609336853,
+          "delta_e76": 24.448132324757648
+        },
+        {
+          "image": "scene_0028.npy",
+          "psnr_db": 15.61103079119331,
+          "ssim": 0.7387433052062988,
+          "delta_e76": 25.42402942023753
+        },
+        {
+          "image": "scene_0029.npy",
+          "psnr_db": 14.420913476176304,
+          "ssim": 0.714414119720459,
+          "delta_e76": 30.328239173864166
+        }
+      ]
+    },
+    {
+      "checkpoint": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\outputs\\isp_tiny_fp16.pt",
+      "precision": "fp16",
+      "checkpoint_size_bytes": 1859445,
+      "checkpoint_size_mb": 1.7733049392700195,
+      "parameters": 921003,
+      "scenes": 3,
+      "mean_metrics": {
+        "psnr_db": 15.326371752283984,
+        "ssim": 0.7196721831957499,
+        "delta_e76": 26.732490094630368
+      },
+      "median_latency_ms_per_scene": 14734.630100021604,
+      "per_image": [
+        {
+          "image": "scene_0027.npy",
+          "psnr_db": 15.945062407036186,
+          "ssim": 0.7058980464935303,
+          "delta_e76": 24.44676200935232
+        },
+        {
+          "image": "scene_0028.npy",
+          "psnr_db": 15.611536979043821,
+          "ssim": 0.7387043833732605,
+          "delta_e76": 25.424762753662655
+        },
+        {
+          "image": "scene_0029.npy",
+          "psnr_db": 14.42251587077195,
+          "ssim": 0.714414119720459,
+          "delta_e76": 30.325945520876125
+        }
+      ]
+    }
+  ]
+}

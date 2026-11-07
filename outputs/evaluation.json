@@ -1,0 +1,150 @@
+{
+  "data_root": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\data\\synthetic_pairs\\test",
+  "synthetic_dataset": true,
+  "device": "cpu",
+  "scenes": 3,
+  "classical": {
+    "psnr_db": 13.123860242522627,
+    "ssim": 0.6368944048881531,
+    "ms_ssim": 0.7626425536107103,
+    "delta_e76": 38.48045915105411,
+    "delta_e2000": 18.451624739435143,
+    "lpips": null
+  },
+  "hybrid": {
+    "psnr_db": 15.325253739135634,
+    "ssim": 0.7196904619534811,
+    "ms_ssim": 0.8188515134273239,
+    "delta_e76": 26.733466972953114,
+    "delta_e2000": 15.913738997660431,
+    "lpips": null
+  },
+  "model": {
+    "parameters": 921003,
+    "checkpoint_bytes": 3704373,
+    "checkpoint": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\models\\isp_tiny.pt",
+    "synthetic_training": true,
+    "precision": "fp32"
+  },
+  "process_rss_before_mb": null,
+  "quality_std": {
+    "classical": {
+      "psnr_db": 0.38687468994741736,
+      "ssim": 0.008107039099779034,
+      "ms_ssim": 0.0029215866634997325,
+      "delta_e76": 5.156521157084724,
+      "delta_e2000": 0.8611212526504722,
+      "lpips": null
+    },
+    "hybrid": {
+      "psnr_db": 0.6537380414643911,
+      "ssim": 0.013912136233337778,
+      "ms_ssim": 0.005225122236873389,
+      "delta_e76": 2.572921059492975,
+      "delta_e2000": 1.4940158016364817,
+      "lpips": null
+    }
+  },
+  "per_scene": [
+    {
+      "image": "scene_0027.npy",
+      "classical": {
+        "psnr_db": 13.319681899584321,
+        "ssim": 0.6325454711914062,
+        "ms_ssim": 0.7645533902585384,
+        "delta_e76": 40.85985235021464,
+        "delta_e2000": 17.265831374160854,
+        "lpips": null
+      },
+      "hybrid": {
+        "psnr_db": 15.943816950037291,
+        "ssim": 0.7059139609336853,
+        "ms_ssim": 0.814347305485522,
+        "delta_e76": 24.448132324757648,
+        "delta_e2000": 14.969251300344581,
+        "lpips": null
+      }
+    },
+    {
+      "image": "scene_0028.npy",
+      "classical": {
+        "psnr_db": 13.468384095670416,
+        "ssim": 0.6482558846473694,
+        "ms_ssim": 0.7585145920755071,
+        "delta_e76": 31.320969283023505,
+        "delta_e2000": 18.80428135713082,
+        "lpips": null
+      },
+      "hybrid": {
+        "psnr_db": 15.61103079119331,
+        "ssim": 0.7387433052062988,
+        "ms_ssim": 0.8160304589443463,
+        "delta_e76": 25.42402942023753,
+        "delta_e2000": 14.74919267481698,
+        "lpips": null
+      }
+    },
+    {
+      "image": "scene_0029.npy",
+      "classical": {
+        "psnr_db": 12.583514732313146,
+        "ssim": 0.6298818588256836,
+        "ms_ssim": 0.7648596784980854,
+        "delta_e76": 43.26055581992419,
+        "delta_e2000": 19.28476148701376,
+        "lpips": null
+      },
+      "hybrid": {
+        "psnr_db": 14.420913476176304,
+        "ssim": 0.714414119720459,
+        "ms_ssim": 0.8261767758521035,
+        "delta_e76": 30.328239173864166,
+        "delta_e2000": 18.02277301781973,
+        "lpips": null
+      }
+    }
+  ],
+  "latency_ms": {
+    "classical": {
+      "median": 36.312100011855364,
+      "p95": 36.36619000462815
+    },
+    "learned_stage": {
+      "median": 69.27759997779503,
+      "p95": 71.97778000263497
+    },
+    "hybrid_total": {
+      "median": 102.11340000387281,
+      "p95": 107.94225001591258
+    }
+  },
+  "hybrid_delta_vs_classical": {
+    "psnr_db": {
+      "absolute": 2.201393496613008,
+      "percent": 16.773978508855738,
+      "direction": "improved"
+    },
+    "ssim": {
+      "absolute": 0.082796057065328,
+      "percent": 12.999966152924214,
+      "direction": "improved"
+    },
+    "ms_ssim": {
+      "absolute": 0.05620895981661356,
+      "percent": 7.370288944734826,
+      "direction": "improved"
+    },
+    "delta_e76": {
+      "absolute": -11.746992178101,
+      "percent": -30.52716219416319,
+      "direction": "improved"
+    },
+    "delta_e2000": {
+      "absolute": -2.537885741774712,
+      "percent": -13.754267050265213,
+      "direction": "improved"
+    }
+  },
+  "peak_cuda_memory_mb": null,
+  "process_rss_after_mb": null
+}

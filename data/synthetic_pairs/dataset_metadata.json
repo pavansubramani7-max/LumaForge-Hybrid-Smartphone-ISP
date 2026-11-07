@@ -1,0 +1,9 @@
+{
+  "bayer_pattern": "RGGB",
+  "black_level": 0,
+  "white_level": 65535,
+  "synthetic": true,
+  "seed": 42,
+  "bit_depth": 16,
+  "target_color_space": "sRGB"
+}

@@ -1,0 +1,32 @@
+{
+  "checkpoint": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\models\\isp_tiny.pt",
+  "checkpoint_size_mb": 3.5327653884887695,
+  "parameters": 921003,
+  "device": "cpu",
+  "precision": "fp32",
+  "torch_intra_op_threads": 8,
+  "measurement_note": "Host-process RSS includes Python/PyTorch; tracemalloc is Python allocations only. Not a handset measurement.",
+  "host_memory_before": {
+    "rss_mb": 218.2578125,
+    "peak_rss_mb": 218.2578125
+  },
+  "cases": [
+    {
+      "resolution": "1920x1080",
+      "warmup_runs": 10,
+      "timed_runs": 50,
+      "tile_size": 512,
+      "overlap": 64,
+      "latency_ms": {
+        "mean": 9995.476026005344,
+        "p50": 9747.649349999847,
+        "p95": 11386.048295031651
+      },
+      "python_peak_tracemalloc_mb": 63.76746368408203
+    }
+  ],
+  "host_memory_after_case": {
+    "rss_mb": 246.25,
+    "peak_rss_mb": 613.37890625
+  }
+}

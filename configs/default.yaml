@@ -1,0 +1,39 @@
+project:
+  name: HybridISP Studio
+  seed: 42
+data:
+  data_root: ./data
+  splits_file: ./splits.json
+  train_fraction: 0.8
+  val_fraction: 0.1
+  test_fraction: 0.1
+  patch_size: 128
+  num_workers: 0
+raw:
+  bayer_pattern: auto
+  black_level: 0
+  white_level: null
+  input_layout: auto
+model:
+  name: hybrid_refiner
+  base_channels: 16
+  tile_size: 512
+  tile_overlap: 64
+training:
+  epochs: 20
+  batch_size: 4
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  amp: true
+  early_stopping_patience: 6
+pipeline:
+  wb_method: gray_world
+  demosaic_method: bilinear
+  denoise_method: bilateral
+  tone_method: aces
+  fusion_alpha: 0.85
+  adaptive: true
+evaluation:
+  warmup_runs: 10
+  timed_runs: 50
+  resolutions: [256, 512, 1080]

@@ -1,0 +1,257 @@
+{
+  "dataset": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\data\\synthetic_pairs\\test",
+  "synthetic": true,
+  "scenes": 3,
+  "perceptual_metric": "MS-SSIM (LPIPS package/weights unavailable)",
+  "note": "Classical-stage ablation on generated pairs; not camera-calibrated evidence.",
+  "summary": [
+    {
+      "variant": "full pipeline",
+      "psnr_db_mean": 12.076049467266662,
+      "psnr_db_std": 1.1095131449616102,
+      "ssim_mean": 0.3882760902245839,
+      "ssim_std": 0.04989276867377894,
+      "ms_ssim_mean": 0.4728188405091953,
+      "ms_ssim_std": 0.062306570016937235,
+      "delta_e76_mean": 42.97673706517284,
+      "delta_e76_std": 7.910095557919614,
+      "delta_e2000_mean": 23.93590875608326,
+      "delta_e2000_std": 6.364122545302147,
+      "n": 3
+    },
+    {
+      "variant": "without white_balance",
+      "psnr_db_mean": 11.358547853939356,
+      "psnr_db_std": 1.090303214045174,
+      "ssim_mean": 0.3764326473077138,
+      "ssim_std": 0.055188756673205185,
+      "ms_ssim_mean": 0.46301123974891634,
+      "ms_ssim_std": 0.06763294008164805,
+      "delta_e76_mean": 50.258983588212374,
+      "delta_e76_std": 3.963077002125647,
+      "delta_e2000_mean": 23.98890471079658,
+      "delta_e2000_std": 5.768448438738436,
+      "n": 3
+    },
+    {
+      "variant": "without ccm",
+      "psnr_db_mean": 13.59576959557431,
+      "psnr_db_std": 1.5626633865864674,
+      "ssim_mean": 0.4178493122259776,
+      "ssim_std": 0.047064606985094445,
+      "ms_ssim_mean": 0.5192345834375475,
+      "ms_ssim_std": 0.05359489965812672,
+      "delta_e76_mean": 34.53939628671791,
+      "delta_e76_std": 8.911266383384385,
+      "delta_e2000_mean": 22.32477379873329,
+      "delta_e2000_std": 6.709353335056254,
+      "n": 3
+    },
+    {
+      "variant": "without denoise",
+      "psnr_db_mean": 13.073750555896453,
+      "psnr_db_std": 0.39478033005262864,
+      "ssim_mean": 0.3729528586069743,
+      "ssim_std": 0.046850221969297466,
+      "ms_ssim_mean": 0.5033420303391708,
+      "ms_ssim_std": 0.044815762303445035,
+      "delta_e76_mean": 28.560992681997856,
+      "delta_e76_std": 3.102266521349557,
+      "delta_e2000_mean": 15.942355899952801,
+      "delta_e2000_std": 3.234292133702295,
+      "n": 3
+    },
+    {
+      "variant": "without tone",
+      "psnr_db_mean": 7.7082781942324985,
+      "psnr_db_std": 0.45862509729083245,
+      "ssim_mean": 0.25452877084414166,
+      "ssim_std": 0.022721316443316514,
+      "ms_ssim_mean": 0.31235137221893733,
+      "ms_ssim_std": 0.030656424265807003,
+      "delta_e76_mean": 52.944553095928676,
+      "delta_e76_std": 4.984984356118025,
+      "delta_e2000_mean": 38.47665895353024,
+      "delta_e2000_std": 5.192785077053095,
+      "n": 3
+    },
+    {
+      "variant": "without sharpen",
+      "psnr_db_mean": 12.075204840606872,
+      "psnr_db_std": 1.1106756488037244,
+      "ssim_mean": 0.38872971137364704,
+      "ssim_std": 0.04891372593182798,
+      "ms_ssim_mean": 0.4722696391919283,
+      "ms_ssim_std": 0.06192078843574025,
+      "delta_e76_mean": 42.99922570419852,
+      "delta_e76_std": 7.900393518233849,
+      "delta_e2000_mean": 23.92634023411374,
+      "delta_e2000_std": 6.356416460663054,
+      "n": 3
+    }
+  ],
+  "per_image": [
+    {
+      "image": "scene_0027.npy",
+      "variant": "full pipeline",
+      "psnr_db": 13.397799301506655,
+      "ssim": 0.37134677171707153,
+      "ms_ssim": 0.4836545588639817,
+      "delta_e76": 34.770889591245464,
+      "delta_e2000": 16.401085391336395
+    },
+    {
+      "image": "scene_0027.npy",
+      "variant": "without white_balance",
+      "psnr_db": 12.898682425383578,
+      "ssim": 0.34105467796325684,
+      "ms_ssim": 0.45407490124962624,
+      "delta_e76": 44.90259996891463,
+      "delta_e2000": 18.76047045263704
+    },
+    {
+      "image": "scene_0027.npy",
+      "variant": "without ccm",
+      "psnr_db": 15.682231411389527,
+      "ssim": 0.4029350280761719,
+      "ms_ssim": 0.5246931772682962,
+      "delta_e76": 22.46529403954319,
+      "delta_e2000": 13.896421673380063
+    },
+    {
+      "image": "scene_0027.npy",
+      "variant": "without denoise",
+      "psnr_db": 13.606948905504135,
+      "ssim": 0.3523150086402893,
+      "ms_ssim": 0.49101062064918743,
+      "delta_e76": 26.525342035428586,
+      "delta_e2000": 13.10070205060181
+    },
+    {
+      "image": "scene_0027.npy",
+      "variant": "without tone",
+      "psnr_db": 8.355388932299254,
+      "ssim": 0.27342167496681213,
+      "ms_ssim": 0.35344282196630633,
+      "delta_e76": 46.29833070720538,
+      "delta_e2000": 31.224850987420044
+    },
+    {
+      "image": "scene_0027.npy",
+      "variant": "without sharpen",
+      "psnr_db": 13.401880853603945,
+      "ssim": 0.37345853447914124,
+      "ms_ssim": 0.48461370672805504,
+      "delta_e76": 34.79842831729453,
+      "delta_e2000": 16.40129967303921
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "full pipeline",
+      "psnr_db": 12.147473778624216,
+      "ssim": 0.4560617506504059,
+      "ms_ssim": 0.5431314468441378,
+      "delta_e76": 40.49540169202329,
+      "delta_e2000": 23.440350663290197
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "without white_balance",
+      "psnr_db": 10.524209468821047,
+      "ssim": 0.4543710947036743,
+      "ms_ssim": 0.5499501811957542,
+      "delta_e76": 51.508597475816075,
+      "delta_e2000": 21.18001364515503
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "without ccm",
+      "psnr_db": 13.183318449569093,
+      "ssim": 0.4814828634262085,
+      "ms_ssim": 0.5819749185594022,
+      "delta_e76": 37.44946099731388,
+      "delta_e2000": 22.764656073131615
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "without denoise",
+      "psnr_db": 12.950510731943632,
+      "ssim": 0.43779677152633667,
+      "ms_ssim": 0.5633466716293752,
+      "delta_e76": 32.944554356821484,
+      "delta_e2000": 20.467167515238792
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "without tone",
+      "psnr_db": 7.346759167491222,
+      "ssim": 0.2675918936729431,
+      "ms_ssim": 0.3037782866278975,
+      "delta_e76": 58.303812496054604,
+      "delta_e2000": 43.10555157146288
+    },
+    {
+      "image": "scene_0028.npy",
+      "variant": "without sharpen",
+      "psnr_db": 12.140117246172764,
+      "ssim": 0.4547940790653229,
+      "ms_ssim": 0.5411775232331781,
+      "delta_e76": 40.528131547571576,
+      "delta_e2000": 23.430178940769288
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "full pipeline",
+      "psnr_db": 10.682875321669114,
+      "ssim": 0.3374197483062744,
+      "ms_ssim": 0.3916705158194665,
+      "delta_e76": 53.66391991224977,
+      "delta_e2000": 31.966290213623196
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "without white_balance",
+      "psnr_db": 10.652751667613442,
+      "ssim": 0.3338721692562103,
+      "ms_ssim": 0.3850086368013686,
+      "delta_e76": 54.36575331990642,
+      "delta_e2000": 32.02623003459768
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "without ccm",
+      "psnr_db": 11.921758925764314,
+      "ssim": 0.36913004517555237,
+      "ms_ssim": 0.45103565448494376,
+      "delta_e76": 43.703433823296656,
+      "delta_e2000": 30.313243649688186
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "without denoise",
+      "psnr_db": 12.66379203024159,
+      "ssim": 0.3287467956542969,
+      "ms_ssim": 0.45566879873894955,
+      "delta_e76": 26.2130816537435,
+      "delta_e2000": 14.259198134017797
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "without tone",
+      "psnr_db": 7.42268648290702,
+      "ssim": 0.22257274389266968,
+      "ms_ssim": 0.27983300806260814,
+      "delta_e76": 54.23151608452602,
+      "delta_e2000": 41.09957430170779
+    },
+    {
+      "image": "scene_0029.npy",
+      "variant": "without sharpen",
+      "psnr_db": 10.683616422043912,
+      "ssim": 0.33793652057647705,
+      "ms_ssim": 0.3910176876145519,
+      "delta_e76": 53.671117247729455,
+      "delta_e2000": 31.947542088532725
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybridisp-studio"
+version = "0.1.0"
+description = "Hybrid learned smartphone RAW-to-RGB ISP for Problem P2"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "Pillow>=10.0",
+  "torch>=2.2",
+  "streamlit>=1.57",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+vision = ["opencv-python-headless>=4.9", "scikit-image>=0.22", "rawpy>=0.19", "colour-science>=0.4"]
+metrics = ["lpips>=0.1.4", "psutil>=5.9", "plotly>=5.20"]
+dev = ["pytest>=8.0", "ruff>=0.4", "black>=24.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

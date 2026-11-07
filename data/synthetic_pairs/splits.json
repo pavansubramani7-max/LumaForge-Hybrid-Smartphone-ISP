@@ -1,0 +1,51 @@
+{
+  "seed": 42,
+  "data_root": "C:\\Users\\pavan\\Documents\\Codex\\2026-11-06\\problem-statement-2-probid-p2-intelligent\\data\\synthetic_pairs",
+  "fractions": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "counts": {
+    "total": 30,
+    "train": 24,
+    "val": 3,
+    "test": 3
+  },
+  "train": [
+    "scene0000",
+    "scene0001",
+    "scene0002",
+    "scene0003",
+    "scene0004",
+    "scene0005",
+    "scene0006",
+    "scene0007",
+    "scene0008",
+    "scene0009",
+    "scene0010",
+    "scene0011",
+    "scene0012",
+    "scene0013",
+    "scene0014",
+    "scene0015",
+    "scene0016",
+    "scene0017",
+    "scene0018",
+    "scene0019",
+    "scene0020",
+    "scene0021",
+    "scene0022",
+    "scene0023"
+  ],
+  "val": [
+    "scene0024",
+    "scene0025",
+    "scene0026"
+  ],
+  "test": [
+    "scene0027",
+    "scene0028",
+    "scene0029"
+  ]
+}
