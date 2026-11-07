@@ -1,6 +1,8 @@
 # LumaForge — Hybrid Smartphone ISP
 
-LumaForge is a Streamlit image-processing project for reconstructing display-ready RGB images from Bayer RAW sensor measurements. Its computer-vision approach combines a classical image signal processing (ISP) pipeline with compact learned restoration models, adaptive heuristics, and tools for paired-image evaluation. The project also includes a photo-editing studio; its creative looks are a separate post-processing feature and are not part of the RAW reconstruction model.
+LumaForge is a Streamlit image-processing project for reconstructing display-ready RGB images from Bayer RAW sensor measurements. Its computer-vision approach combines a classical image signal processing (ISP) pipeline with compact learned restoration models, adaptive heuristics, and tools for paired-image evaluation. The project also includes a photo-editing studio; its creative looks are a separate post-processing feature and are not part of the RAW reconstruction model. 
+
+**PROTOTYPE LINK**  https://lumaforge-hybrid-smartphone-isp-2ytsamtbpkoxqogspaqsdp.streamlit.app/
 
 > **Evidence and dataset status.** The supplied `archive (6).zip` was inspected and contains FraudxAI transaction CSV files, not photographs or sensor data. It contains no Bayer RAW, RGB targets, or aligned RAW/RGB training pairs. The included demo pairs are generated procedurally and exist to exercise software paths. Results from those pairs are synthetic-only and do not establish camera quality or superiority over a phone ISP.
 
