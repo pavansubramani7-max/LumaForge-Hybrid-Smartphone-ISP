@@ -1,6 +1,6 @@
-# HybridISP Studio — Computer Vision Hackathon P2
+# LumaForge · Hybrid Smartphone ISP
 
-HybridISP Studio is a runnable Streamlit prototype for Bayer RAW-to-RGB reconstruction. It combines a configurable classical ISP, compact learned ISP models, an adaptive noise/illumination controller, hybrid fusion, evaluation tools, and CPU-friendly training/export workflows.
+LumaForge is a Streamlit photo studio for Bayer RAW-to-RGB reconstruction. It combines a configurable classical ISP, compact learned ISP models, an adaptive noise/illumination controller, hybrid fusion, evaluation tools, CPU-friendly training/export workflows, and four creative look departments: World, Era, Cinema, and Light. Creative looks are applied to each fresh ISP output and never replace or retrain the reconstruction pipeline.
 
 ## Data status — read before interpreting scores
 
@@ -23,7 +23,7 @@ python -m streamlit run app.py
 
 Run that command from the repository root. `app.py` is the main upload, training and evaluation interface. Uploading an image starts processing automatically and displays the four-column comparison: **Visualized RAW Image | Reconstructed RGB Image | Huawei P20’s ISP Photo | Canon Photo**. Huawei-style and Canon-style previews are generated automatically from the reconstructed RGB; they are explicitly simulations, not actual device captures. Add a real aligned RGB target in the optional reference section to compute quality metrics. The complete review can be inspected and downloaded as JSON, HTML or PDF. For the multipage dashboard (Overview, ISP Playground, pipeline comparison, robustness, efficiency, ablation and report export), use `python -m streamlit run app/streamlit_app.py` instead.
 
-The Streamlit interface uses a wine-colour theme and Times New Roman typography. The dependency-free PDF report uses the standard Times-Roman serif font.
+The LumaForge studio uses a charcoal theme with electric-lime accents and Times New Roman typography. Multiple uploaded photos can be selected from the image cards; creative look presets are applied to the current ISP output, with undo/redo/reset, before/after comparison, synchronized zoom/pan, and PNG export. The dependency-free PDF report uses the standard Times-Roman serif font.
 
 To keep working while the real dataset is unavailable, train a quick synthetic demo in the Overview page, or run these commands:
 

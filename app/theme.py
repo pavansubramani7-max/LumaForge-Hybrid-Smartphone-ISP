@@ -1,4 +1,4 @@
-"""Shared LumaForge visual theme for Streamlit entry points."""
+"""Shared dark, cinematic LumaForge theme."""
 from __future__ import annotations
 
 import streamlit as st
@@ -8,88 +8,92 @@ def apply_theme() -> None:
     st.markdown(
         """
         <style>
+        :root { color-scheme: dark; }
         html, body, [data-testid="stAppViewContainer"], [data-testid="stMarkdownContainer"],
         [data-testid="stSidebar"], [data-testid="stMetricValue"], button, input, textarea,
         select, label, p, h1, h2, h3, h4, li {
             font-family: "Times New Roman", Times, serif !important;
         }
-        /* Keep Streamlit's Material Symbols font intact; overriding every span
-           turns icon ligatures into visible strings such as keyboard_double_arrow. */
-        [data-testid="stIconMaterial"], .material-symbols-rounded,
-        .material-symbols-outlined, [class*="material-symbols"] {
+        [data-testid="stIconMaterial"], .material-symbols-rounded, .material-symbols-outlined,
+        [class*="material-symbols"] {
             font-family: "Material Symbols Rounded" !important;
-            font-feature-settings: "liga";
-            font-weight: normal;
-            font-style: normal;
-            letter-spacing: normal;
-            text-transform: none;
-            white-space: nowrap;
-            direction: ltr;
-        }
-        [data-testid="stAppViewContainer"] > .main .block-container {
-            max-width: 1480px; padding-top: 2rem; padding-bottom: 3rem;
-        }
-        [data-testid="stSidebar"] { min-width: 340px !important; max-width: 360px !important; }
-        @media (max-width: 900px) {
-            [data-testid="stSidebar"] { min-width: 280px !important; max-width: 320px !important; }
-            [data-testid="stAppViewContainer"] > .main .block-container { padding: 1.25rem 1.25rem 2rem; }
+            font-feature-settings: "liga"; font-weight: normal; font-style: normal;
+            letter-spacing: normal; text-transform: none; white-space: nowrap; direction: ltr;
         }
         [data-testid="stAppViewContainer"] {
-            background: radial-gradient(ellipse at top left, #fffafb 0%, #f7f1f3 52%, #f1e8eb 100%);
-            color: #2b1720;
+            background: radial-gradient(ellipse at 50% -20%, #20272b 0%, #111619 48%, #0b0f11 100%);
+            color: #eff2ed;
         }
-        [data-testid="stSidebar"] { background: #f4eaed; border-right: 1px solid #e1cbd3; }
-        h1, h2, h3 { color: #681832 !important; letter-spacing: .01em; }
-        h1 { font-size: clamp(2rem, 3vw, 2.8rem) !important; line-height: 1.15 !important; }
-        h2 { font-size: clamp(1.55rem, 2.2vw, 2rem) !important; }
-        h3 { font-size: 1.35rem !important; }
-        [data-testid="stAlert"] {
-            border: 1px solid #ddbdc8; border-left: 4px solid #7b1e3d;
-            border-radius: 12px; background: #f7edf1; color: #402431;
+        [data-testid="stAppViewContainer"] > .main .block-container {
+            max-width: 1560px; padding: 1.35rem clamp(1rem, 3vw, 2.6rem) 3rem;
         }
-        [data-testid="stAlert"] p { color: #402431 !important; }
+        [data-testid="stSidebar"] {
+            background: #111719; border-right: 1px solid #283234;
+            min-width: 300px !important; max-width: 340px !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p { color: #d5ddd7; }
+        h1, h2, h3 { color: #f3f5ef !important; letter-spacing: .01em; }
+        h1 { font-size: clamp(1.8rem, 3vw, 2.5rem) !important; line-height: 1.1 !important; }
+        h2 { font-size: clamp(1.35rem, 2.2vw, 1.8rem) !important; }
+        h3 { font-size: 1.18rem !important; }
+        p, label, [data-testid="stCaptionContainer"] { color: #bec9c4; }
+        [data-testid="stTabs"] button[role="tab"] { color: #b8c4bf; }
+        [data-testid="stTabs"] button[aria-selected="true"] {
+            color: #c3f27e; border-bottom-color: #c3f27e;
+        }
         [data-testid="stMetric"] {
-            background: rgba(255,255,255,.82); border: 1px solid #e4ccd4;
-            border-radius: 14px; padding: 12px 16px; box-shadow: 0 5px 18px rgba(83,24,47,.07);
+            background: #151d20; border: 1px solid #2a3638; border-radius: 12px;
+            padding: 11px 14px; box-shadow: 0 5px 20px rgba(0,0,0,.14);
         }
-        [data-testid="stMetricLabel"] { color: #6f4b59 !important; }
+        [data-testid="stMetricLabel"] { color: #aab8b2 !important; }
+        [data-testid="stMetricValue"] { color: #f0f4ed !important; }
         .stButton > button, .stDownloadButton > button {
-            background: linear-gradient(135deg, #7b1e3d, #54122b); color: #fff;
-            border: 1px solid #6e1a36; border-radius: 10px; font-weight: 700;
-            box-shadow: 0 4px 12px rgba(91,20,47,.18); transition: transform .15s ease, box-shadow .15s ease;
+            background: #c3f27e; color: #131911; border: 1px solid #c3f27e;
+            border-radius: 9px; font-weight: 700; box-shadow: 0 0 0 rgba(195,242,126,0);
+            transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
         }
-        /* Streamlit renders button labels inside a paragraph with its own theme
-           colour. Set the nested text explicitly or primary buttons can show a
-           dark label on the wine background. */
         .stButton > button p, .stButton > button span,
-        .stDownloadButton > button p, .stDownloadButton > button span {
-            color: inherit !important;
-        }
+        .stDownloadButton > button p, .stDownloadButton > button span { color: inherit !important; }
         .stButton > button:hover, .stDownloadButton > button:hover {
-            color: #fff; border-color: #a04a66; transform: translateY(-1px);
-            box-shadow: 0 7px 18px rgba(91,20,47,.25);
+            background: #d2ff91; border-color: #d2ff91; color: #10160e;
+            transform: translateY(-1px); box-shadow: 0 0 22px rgba(195,242,126,.18);
         }
-        /* Keep disabled controls readable while making their state obvious. */
-        .stButton > button:disabled, .stButton > button[aria-disabled="true"],
-        .stDownloadButton > button:disabled, .stDownloadButton > button[aria-disabled="true"] {
-            background: #ead7dd !important; color: #4b2332 !important;
-            border: 1px solid #cbaab6 !important; opacity: 1 !important;
-            box-shadow: none !important; transform: none !important; cursor: not-allowed !important;
+        .stButton > button:disabled, .stDownloadButton > button:disabled {
+            background: #354039 !important; border-color: #46524a !important;
+            color: #b7c1b9 !important; opacity: 1 !important; box-shadow: none !important;
         }
-        .stButton > button:disabled p, .stButton > button[aria-disabled="true"] p,
-        .stDownloadButton > button:disabled p, .stDownloadButton > button[aria-disabled="true"] p {
-            color: #4b2332 !important; opacity: 1 !important;
+        [data-testid="stFileUploader"] section {
+            background: #151d20; border: 1px solid #344143; border-radius: 11px;
         }
-        [data-testid="stFileUploader"] section { background: rgba(255,255,255,.82); border: 1px solid #d8bac5; border-radius: 12px; }
         [data-testid="stFileUploader"] section button {
-            background: #fffafb; color: #54122b; border: 1px solid #cfaeba;
-            border-radius: 9px; box-shadow: none;
+            background: #1d272a; color: #d9e0db; border: 1px solid #3c494a;
+            border-radius: 8px; box-shadow: none;
         }
-        [data-testid="stFileUploader"] section button:hover { color: #54122b; border-color: #7b1e3d; }
-        [data-testid="stTabs"] button[role="tab"] { color: #5a3342; }
-        [data-testid="stTabs"] button[aria-selected="true"] { color: #741b39; border-bottom-color: #741b39; }
-        [data-testid="stImage"] img { border-radius: 8px; }
-        div[data-testid="stExpander"] { border: 1px solid #e0c8d0; border-radius: 12px; background: rgba(255,255,255,.56); }
+        [data-testid="stTextInput"] input, [data-testid="stNumberInput"] input,
+        [data-testid="stSelectbox"] div[data-baseweb="select"],
+        [data-testid="stTextArea"] textarea { background: #151d20; }
+        [data-testid="stAlert"] { background: #171f21; border: 1px solid #344143; border-radius: 10px; }
+        [data-testid="stImage"] img { border-radius: 9px; }
+        div[data-testid="stExpander"] { border: 1px solid #2b3739; border-radius: 10px; background: #131a1c; }
+        [data-testid="stProgressBar"] > div > div { background: #c3f27e; }
+        .lf-brand { display:flex; align-items:center; gap:.75rem; margin:.1rem 0 .3rem; }
+        .lf-mark { width:34px; height:34px; display:grid; place-items:center; border-radius:11px;
+            color:#10160e; background:linear-gradient(135deg,#d5ff91,#a8d565); font-weight:800; }
+        .lf-eyebrow { color:#c3f27e; text-transform:uppercase; letter-spacing:.17em; font-size:.76rem; }
+        .lf-card { background:#141b1e; border:1px solid #2c383a; border-radius:14px; padding:14px 16px; }
+        .lf-selected { border-color:#c3f27e; box-shadow:0 0 0 1px rgba(195,242,126,.26),0 0 25px rgba(195,242,126,.08); }
+        .lf-pipeline { display:flex; align-items:center; gap:8px; overflow-x:auto; padding:12px 2px 16px; }
+        .lf-stage { display:flex; align-items:center; gap:7px; white-space:nowrap; color:#e2e9e3;
+            background:#172022; border:1px solid #344144; border-radius:999px; padding:8px 12px; font-size:.92rem; }
+        .lf-stage.done { border-color:#63824d; background:#1b2920; }
+        .lf-dot { width:8px;height:8px;border-radius:50%;background:#c3f27e;box-shadow:0 0 10px rgba(195,242,126,.35); }
+        .lf-arrow { color:#82938d; }
+        @media(max-width:800px) {
+            [data-testid="stSidebar"] { min-width:260px !important; max-width:300px !important; }
+            [data-testid="stAppViewContainer"] > .main .block-container { padding:.9rem .8rem 2rem; }
+            .lf-pipeline { gap:5px; padding:8px 0 12px; }
+            .lf-stage { padding:7px 9px; font-size:.84rem; }
+        }
         </style>
         """,
         unsafe_allow_html=True,

@@ -17,16 +17,26 @@ from src.isp.metrics import psnr, ssim, delta_e_76
 from src.isp.data import safe_extract_zip, inspect_pair_layout, find_pair_root
 from isp.evaluation.report import build_pdf_report
 from app.components import camera_style_preview, to_image, visualized_raw
+from app.creative_studio import render_creative_studio, render_upload_gallery
 from app.theme import apply_theme
 
-st.set_page_config(page_title="LumaForge ISP", page_icon="📷", layout="wide")
+st.set_page_config(page_title="LumaForge Photo Studio", page_icon="📷", layout="wide")
 apply_theme()
-st.title("LumaForge · Hybrid Smartphone ISP")
-st.caption("RAW reconstruction · adaptive classical imaging · learned restoration · mobile-aware evaluation")
+st.markdown("<div class='lf-brand'><span class='lf-mark'>L</span><div><div class='lf-eyebrow'>LUMAFORGE · IMAGE STUDIO</div><h1 style='margin:.1rem 0'>Hybrid Smartphone ISP</h1></div></div>", unsafe_allow_html=True)
+st.caption("RAW reconstruction · adaptive classical imaging · learned restoration · creative color looks")
 
 with st.sidebar:
     st.header("Image input")
-    upload = st.file_uploader("RGB image, Bayer mosaic, DNG, or NPY", type=["png", "jpg", "jpeg", "tif", "tiff", "npy", "dng"], key="source_image_upload")
+    uploads = st.file_uploader("RGB image, Bayer mosaic, DNG, or NPY", type=["png", "jpg", "jpeg", "tif", "tiff", "npy", "dng"], key="source_image_upload", accept_multiple_files=True)
+    if uploads:
+        active_index = int(st.session_state.get("lf_active_upload", 0))
+        if active_index >= len(uploads):
+            active_index = 0
+            st.session_state["lf_active_upload"] = 0
+        upload = uploads[active_index]
+        st.caption(f"{len(uploads)} photo{'s' if len(uploads) != 1 else ''} loaded · active: {upload.name}")
+    else:
+        upload = None
     kind = st.selectbox("Input type", ["Auto-detect", "Bayer RAW mosaic", "RGB image"])
     pattern = st.selectbox("Bayer pattern", ["RGGB", "BGGR", "GRBG", "GBRG"], index=0, key="isp_bayer_pattern")
     st.divider()
@@ -45,10 +55,11 @@ with st.sidebar:
     sharp = st.slider("Detail recovery", 0.0, 0.8, 0.25, 0.05, format="%.2f", key="isp_detail")
     st.sidebar.caption("RAW WB defaults: R 1.50 · G 1.00 · B 1.80. Rendered RGB uses neutral WB unless you change these gains or enable adaptive estimation.")
 
-studio, training, evaluation = st.tabs(["ISP Studio", "Dataset & Training", "Evaluation"])
+studio, training, evaluation = st.tabs(["LumaForge Studio", "Dataset & Training", "Evaluation"])
 
 with studio:
-    st.subheader("Compare the conventional and hybrid pipelines")
+    render_upload_gallery(uploads or [], int(st.session_state.get("lf_active_upload", 0)))
+    st.subheader("Your photo, developed and styled")
     if not upload:
         st.info("Upload an image in the sidebar. For RAW reconstruction, use a single-channel RGGB mosaic and enter the sensor black/white levels.")
     else:
@@ -148,11 +159,26 @@ with studio:
         else:
             st.info("This checkpoint was trained for synthetic Bayer RAW reconstruction, so it is skipped for already-rendered RGB to avoid unvalidated colour or detail changes.")
         raw_view = raw.astype(np.float32)
-        if raw.ndim == 2:
+        if input_kind == "rggb" and raw.ndim == 2:
             raw_view = visualized_raw(raw, pattern, black, white)
+        elif raw.ndim == 2:
+            if np.issubdtype(raw.dtype, np.integer):
+                raw_view /= float(np.iinfo(raw.dtype).max)
+            else:
+                peak = float(np.nanmax(raw_view)) if raw_view.size else 1.0
+                if peak > 1.5:
+                    raw_view /= 255.0 if peak <= 255 else (65535.0 if peak <= 65535 else peak)
+            raw_view = np.repeat(np.clip(raw_view, 0, 1)[..., None], 3, axis=-1)
         elif np.issubdtype(raw.dtype, np.integer):
-            raw_view = raw_view / np.iinfo(raw.dtype).max
+            raw_view = raw_view / float(np.iinfo(raw.dtype).max)
+        else:
+            peak = float(np.nanmax(raw_view)) if raw_view.size else 1.0
+            if peak > 1.5:
+                raw_view /= 255.0 if peak <= 255 else (65535.0 if peak <= 65535 else peak)
+            raw_view = np.clip(raw_view, 0, 1)
         selected = hybrid if learned_ms is not None else baseline
+        edited = render_creative_studio(raw_view, selected, upload.name, input_kind,
+                                        classical_ms + (learned_ms or 0.0))
         huawei_preview = camera_style_preview(selected, "huawei")
         canon_preview = camera_style_preview(selected, "canon")
         columns = st.columns(4, gap="small")
